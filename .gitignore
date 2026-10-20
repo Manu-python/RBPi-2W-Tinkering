@@ -1,2 +1,11 @@
 .pio/
 .vscode/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+wireless_range_lab/data/trials/*.json
+wireless_range_lab/data/trial_index.csv
+wireless_range_lab/data/trials/*.ndjson
+include/secrets.h
+include/esp32_hotspot_secrets.h

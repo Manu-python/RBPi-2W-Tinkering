@@ -1,27 +1,94 @@
-# Raspberry Pi Pico 2 W — PlatformIO playground
+# Wireless Range Lab
 
-This project targets the Raspberry Pi **Pico 2 W** (RP2350) using PlatformIO and the Arduino-Pico framework.
+Wireless Range Lab is a reproducible test bench for comparing Wi-Fi and, later, BLE links across a Raspberry Pi Pico 2 W, ESP32 boards, and a host computer. It combines PlatformIO firmware with a PyQt desktop application that records test setup, stores raw telemetry, and displays derived results.
 
-## Open and build
+The current working configuration is a self-contained Wi-Fi range test:
 
-1. Open this folder in VS Code.
-2. Use the PlatformIO alien-head button in the left sidebar, then run **Project Tasks → pico2_w → Build**.
-3. PlatformIO downloads its toolchain and board support on the first build, so that one can take a few minutes.
+```text
+Pico 2 W (station and packet-test agent)
+        <---- 2.4 GHz Wi-Fi ---->
+Freenove ESP32-WROOM (WPA2 access point and UDP echo host)
+        |
+USB serial NDJSON -> laptop collector -> saved trial data -> PyQt summary view
+```
 
-## Upload the starter blink sketch
+No school or public Wi-Fi network is required.
 
-1. Connect the Pico 2 W with a data-capable USB cable.
-2. For the first upload, hold **BOOTSEL** while plugging it in, then release it. Windows should show an `RPI-RP2` USB drive.
-3. Run **Upload** in PlatformIO. The built-in LED will blink twice per second and the serial monitor will print `blink` at 115200 baud.
+## Documentation
 
-The Pico 2 W's onboard LED is attached through its wireless chip. `LED_BUILTIN` handles that detail in Arduino-Pico; do not replace it with a numbered GPIO.
+- [Experiment workflow](docs/EXPERIMENT_WORKFLOW.md): configure, flash, collect, and compare trials.
+- [Architecture and metrics](docs/ARCHITECTURE.md): components, data contracts, calculations, and limitations.
+- [Wireless Range Lab application](docs/WIRELESS_RANGE_LAB.md): desktop UI, files, and commands.
+- [ESP32-WROOM access point](docs/ESP32_WROOM_ACCESS_POINT.md): hardware-specific setup and troubleshooting.
 
-## Useful commands
+## Prerequisites
 
-Run these from PlatformIO's integrated terminal after installing its shell commands:
+- VS Code with the PlatformIO extension.
+- Python 3.11+ and the project virtual environment.
+- A data-capable USB cable for each board.
+- Raspberry Pi Pico 2 W and Freenove ESP32-WROOM.
+
+Install the desktop application dependencies once:
 
 ```powershell
-pio run
-pio run -t upload
-pio device monitor -b 115200
+py -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r .\wireless_range_lab\requirements.txt
+```
+
+## PlatformIO environments
+
+| Environment | Board | Role |
+| --- | --- | --- |
+| `pico2_w` | Raspberry Pi Pico 2 W (RP2350) | Wi-Fi station, UDP test client, serial telemetry source |
+| `freenove_esp32_wroom_ap` | Freenove ESP32-WROOM | Private WPA2 AP and UDP echo host |
+
+The project currently pins `upload_port` to `COM11` for the Pico and `COM12` for the ESP32. Update those values in [platformio.ini](platformio.ini) if Windows assigns different ports.
+
+## Quick start: private ESP32 Wi-Fi test
+
+1. Configure local credentials. These files are intentionally ignored by Git:
+
+   - `include/esp32_hotspot_secrets.h`: ESP32 AP SSID, WPA2 password, and channel.
+   - `include/secrets.h`: Pico station SSID/password, plus `ECHO_SERVER_IP` set to `192, 168, 4, 1` and port `3333`.
+
+   The Pico and ESP32 SSID/password must match. Never commit or share these files.
+
+2. Flash the ESP32 AP first:
+
+   ```powershell
+   & "$env:USERPROFILE\.platformio\penv\Scripts\pio.exe" run -e freenove_esp32_wroom_ap -t upload
+   ```
+
+   Its serial output should show `ap_state` with status `ready` and IP `192.168.4.1`.
+
+3. Flash the Pico. For BOOTSEL upload, hold **BOOTSEL** while connecting USB, then release it:
+
+   ```powershell
+   & "$env:USERPROFILE\.platformio\penv\Scripts\pio.exe" run -e pico2_w -t upload
+   ```
+
+4. Start the desktop app and save a trial setup:
+
+   ```powershell
+   cd .\wireless_range_lab
+   ..\.venv\Scripts\python.exe app.py
+   ```
+
+   Use **Copy trial ID** after saving.
+
+5. Start collection on the Pico COM port. Do not keep a serial monitor open on the same port:
+
+   ```powershell
+   ..\.venv\Scripts\python.exe tools\collect_serial.py --port COM11 --trial-id <trial-id>
+   ```
+
+6. Let the test run for the planned duration, then press `Ctrl+C`. The collector saves the raw events and summary automatically. Return to the app and select **Refresh summaries**.
+
+## Verification
+
+Run the Python tests from the application directory:
+
+```powershell
+cd .\wireless_range_lab
+..\.venv\Scripts\python.exe -m pytest
 ```
