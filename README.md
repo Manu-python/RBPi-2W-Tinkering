@@ -16,6 +16,12 @@ No school or public Wi-Fi network is required.
 
 ![Current test topology: the laptop collects serial telemetry, the ESP32-WROOM hosts the private Wi-Fi network and UDP echo service, and the Raspberry Pi Pico 2 W acts as the Wi-Fi test client.](media/Wireless%20Range%20Lab.png)
 
+## Planned topology experiments
+
+The current firmware exercises one private ESP32 hotspot. A later experiment will compare its coverage with deliberately placed, overlapping hotspots while retaining the same test area and measurement workflow. This is a test concept only; multi-hotspot orchestration and roaming measurement are not implemented yet.
+
+![Conceptual comparison of one hotspot's coverage with overlapping coverage areas from multiple hotspots in the same test area.](media/Wireless%20Range%20Lab%20%281%29.png)
+
 ## Documentation
 
 - [Experiment workflow](docs/EXPERIMENT_WORKFLOW.md): configure, flash, collect, and compare trials.
