@@ -14,6 +14,8 @@ USB serial NDJSON -> laptop collector -> saved trial data -> PyQt summary view
 
 No school or public Wi-Fi network is required.
 
+![Current test topology: the laptop collects serial telemetry, the ESP32-WROOM hosts the private Wi-Fi network and UDP echo service, and the Raspberry Pi Pico 2 W acts as the Wi-Fi test client.](media/Wireless%20Range%20Lab.png)
+
 ## Documentation
 
 - [Experiment workflow](docs/EXPERIMENT_WORKFLOW.md): configure, flash, collect, and compare trials.
@@ -75,6 +77,10 @@ The project currently pins `upload_port` to `COM11` for the Pico and `COM12` for
    ```
 
    Use **Copy trial ID** after saving.
+
+   The app records the board identities, link configuration, geometry, environment, and notes needed to reproduce a trial. After collection, its saved-summary panel shows that metadata together with the calculated link metrics.
+
+   ![Wireless Range Lab desktop application showing endpoint, link, environment, and saved-summary controls.](media/Screenshot%202026-10-20%20202408.png)
 
 5. Start collection on the Pico COM port. Do not keep a serial monitor open on the same port:
 
