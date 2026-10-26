@@ -1,0 +1,31 @@
+{
+  "trial_id": "trial-20261020-232556-b02049",
+  "created_at": "2026-10-21T04:25:56.702077+00:00",
+  "operator": "",
+  "endpoint_a": {
+    "device_type": "Raspberry Pi Pico 2 W",
+    "label": "RBPi-Pico-2W",
+    "identifier": "",
+    "antenna_type": "Integrated",
+    "firmware_version": "v1.0.0"
+  },
+  "endpoint_b": {
+    "device_type": "ESP32-WROOM",
+    "label": "FREENOVE-ESP32-WROOM",
+    "identifier": "",
+    "antenna_type": "Integrated",
+    "firmware_version": "v0.0.2"
+  },
+  "radio_technology": "Wi-Fi",
+  "communication_mode": "ESP32-hotspot",
+  "distance_m": 0.5,
+  "reference_distance_m": null,
+  "environment": "Indoor office",
+  "location": "IEEE Office shared space",
+  "line_of_sight": false,
+  "obstacles": "",
+  "channel": "",
+  "tx_power": "",
+  "notes": "",
+  "schema_version": 1
+}
