@@ -25,6 +25,7 @@ The current firmware exercises one private ESP32 hotspot. A later experiment wil
 ## Documentation
 
 - [Experiment workflow](docs/EXPERIMENT_WORKFLOW.md): configure, flash, collect, and compare trials.
+- [Experiment 1.0 write-up](docs/EXPERIMENT_1_0_WRITEUP.md): what was built, what happened during setup, and the recorded Wi-Fi results.
 - [Architecture and metrics](docs/ARCHITECTURE.md): components, data contracts, calculations, and limitations.
 - [Wireless Range Lab application](docs/WIRELESS_RANGE_LAB.md): desktop UI, files, and commands.
 - [ESP32-WROOM access point](docs/ESP32_WROOM_ACCESS_POINT.md): hardware-specific setup and troubleshooting.
