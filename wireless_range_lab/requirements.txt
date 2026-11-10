@@ -1,3 +1,4 @@
 PyQt5>=5.15,<6
 pytest>=8,<9
 pyserial>=3.5,<4
+matplotlib>=3.8,<4

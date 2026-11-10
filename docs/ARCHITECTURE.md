@@ -1,5 +1,7 @@
 # Architecture and metrics
 
+> V1 architecture and metrics are retained below for historical trial parsing. For the dual-device V2 diagnostic pipeline, see [V2 UDP telemetry and diagnostics](V2_UDP_TELEMETRY.md).
+
 ## Separation of responsibilities
 
 ```text

@@ -1,0 +1,1 @@
+{"collector_received_at":"2026-10-30T07:51:20.360520+00:00","collector_source":"esp32","port":"COM17","raw_line":"820745,\"sequence\":314,\"sent_monotonic_us\":876480304,\"source_ip\":\"192.168.4.2\",\"source_port\":3334,\"received_bytes\":128,\"validation\":\"valid\"}","error":"Extra data: line 1 column 7 (char 6)","trial_id":"20261030_D200cm_R+090_A04_T1000"}

@@ -1,0 +1,4 @@
+{"schema_version":2,"event":"collection_state","status":"connected","port":"COM17","baud":115200,"collector_received_at":"2026-10-30T04:46:38.832533+00:00","collector_source":"esp32","trial_id":"20261029_D050cm_R+000_A01_T1000"}
+{"schema_version":2,"event":"collection_state","status":"connected","port":"COM11","baud":115200,"collector_received_at":"2026-10-30T04:46:38.832533+00:00","collector_source":"pico","trial_id":"20261029_D050cm_R+000_A01_T1000"}
+{"schema_version":2,"event":"collection_state","status":"session_command_sent","port":"COM11","collector_received_at":"2026-10-30T04:46:38.832533+00:00","collector_source":"pico","trial_id":"20261029_D050cm_R+000_A01_T1000"}
+{"schema_version":2,"event":"session_config","status":"invalid_session_command","device_id":"pico2w-01","device_role":"pico","trial_id":"20261029_D050cm_R+000_A01_T1000","session_id":0,"monotonic_us":130407396,"collector_received_at":"2026-10-30T04:46:38.840325+00:00","collector_source":"pico"}

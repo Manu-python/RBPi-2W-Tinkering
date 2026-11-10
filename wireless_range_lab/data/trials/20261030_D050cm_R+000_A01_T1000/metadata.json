@@ -1,0 +1,36 @@
+{
+  "trial_id": "20261030_D050cm_R+000_A01_T1000",
+  "created_at": "2026-10-30T05:38:49.631679+00:00",
+  "operator": "",
+  "endpoint_a": {
+    "device_type": "Raspberry Pi Pico 2 W",
+    "label": "RBPi-Pico-2-W",
+    "identifier": "",
+    "antenna_type": "Integrated",
+    "firmware_version": "v2.0.1"
+  },
+  "endpoint_b": {
+    "device_type": "Other",
+    "label": "lonely-binary-ESP32-S3",
+    "identifier": "",
+    "antenna_type": "Integrated",
+    "firmware_version": "2.0.0"
+  },
+  "radio_technology": "Wi-Fi",
+  "communication_mode": "Wi-Fi hotspot",
+  "distance_m": 0.5,
+  "reference_distance_m": null,
+  "environment": "Indoor",
+  "location": "UT IEEE Office",
+  "line_of_sight": true,
+  "obstacles": "",
+  "channel": "",
+  "tx_power": "",
+  "notes": "Testing trial",
+  "experiment_date": "2026-10-30",
+  "rotation_deg": 0,
+  "timeout_ms": 1000,
+  "attempt_number": 1,
+  "condition_id": "20261030_D050cm_R+000_T1000",
+  "schema_version": 2
+}

@@ -12,6 +12,8 @@ from datetime import datetime, timezone
 from typing import Any
 from uuid import uuid4
 
+from range_lab.trial_ids import parse_trial_id
+
 
 DEVICE_TYPES = (
     "Raspberry Pi Pico 2 W",
@@ -64,13 +66,19 @@ class TrialMetadata:
     channel: str
     tx_power: str
     notes: str
+    # Empty values denote immutable legacy records that predate automatic condition IDs.
+    experiment_date: str = ""
+    rotation_deg: int | None = None
+    timeout_ms: int | None = None
+    attempt_number: int | None = None
+    condition_id: str = ""
     schema_version: int = 1
 
     @classmethod
-    def new(cls, **values: Any) -> "TrialMetadata":
+    def new(cls, *, trial_id: str | None = None, created_at: str | None = None, **values: Any) -> "TrialMetadata":
         return cls(
-            trial_id=f"trial-{datetime.now().strftime('%Y%m%d-%H%M%S')}-{uuid4().hex[:6]}",
-            created_at=datetime.now(timezone.utc).isoformat(),
+            trial_id=trial_id or f"trial-{datetime.now().strftime('%Y%m%d-%H%M%S')}-{uuid4().hex[:6]}",
+            created_at=created_at or datetime.now(timezone.utc).isoformat(),
             **values,
         )
 
@@ -87,6 +95,14 @@ class TrialMetadata:
             raise ValueError("Reference distance cannot be negative.")
         if not self.environment.strip():
             raise ValueError("Environment is required.")
+        if self.condition_id:
+            if not self.experiment_date or self.rotation_deg is None or self.timeout_ms is None or self.attempt_number is None:
+                raise ValueError("Automatic condition metadata is incomplete.")
+            condition, attempt = parse_trial_id(self.trial_id)
+            if (condition.condition_id != self.condition_id or attempt != self.attempt_number
+                    or condition.experiment_date.isoformat() != self.experiment_date
+                    or condition.rotation_deg != self.rotation_deg or condition.timeout_ms != self.timeout_ms):
+                raise ValueError("Trial ID and condition metadata do not agree.")
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)

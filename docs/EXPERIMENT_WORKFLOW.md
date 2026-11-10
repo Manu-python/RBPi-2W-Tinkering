@@ -1,5 +1,7 @@
 # Experiment workflow
 
+> For new diagnostic runs, use the V2 dual-port procedure in [V2 UDP telemetry and diagnostics](V2_UDP_TELEMETRY.md). This document remains the V1 workflow reference.
+
 ## Before each test session
 
 1. Use the private ESP32 access point, not the school or public Wi-Fi network.

@@ -1,0 +1,1 @@
+{"collector_received_at":"2026-10-30T07:07:35.364432+00:00","collector_source":"esp32","port":"COM17","raw_line":"_port\":3334,\"received_bytes\":128,\"validation\":\"valid\"}","error":"Expecting value: line 1 column 1 (char 0)","trial_id":"20261030_D200cm_R+000_A04_T1000"}

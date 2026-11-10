@@ -1,0 +1,123 @@
+{
+  "schema_version": 2,
+  "trial_id": "20261030_D050cm_R+000_A10_T1000",
+  "generated_at": "2026-10-30T06:33:04.564086+00:00",
+  "metadata": {
+    "trial_id": "20261030_D050cm_R+000_A10_T1000",
+    "created_at": "2026-10-30T06:31:59.526609+00:00",
+    "operator": "",
+    "endpoint_a": {
+      "device_type": "Raspberry Pi Pico 2 W",
+      "label": "RBPi-Pico-2-W",
+      "identifier": "",
+      "antenna_type": "Integrated",
+      "firmware_version": "v2.0.1"
+    },
+    "endpoint_b": {
+      "device_type": "ESP32-S3",
+      "label": "lonely-binary-ESP32-S3",
+      "identifier": "",
+      "antenna_type": "Integrated",
+      "firmware_version": "2.0.0"
+    },
+    "radio_technology": "Wi-Fi",
+    "communication_mode": "Wi-Fi hotspot",
+    "distance_m": 0.5,
+    "reference_distance_m": null,
+    "environment": "Indoor",
+    "location": "UT IEEE Office",
+    "line_of_sight": true,
+    "obstacles": "",
+    "channel": "",
+    "tx_power": "",
+    "notes": "0.5m trial #1.4",
+    "experiment_date": "2026-10-30",
+    "rotation_deg": 0,
+    "timeout_ms": 1000,
+    "attempt_number": 10,
+    "condition_id": "20261030_D050cm_R+000_T1000",
+    "schema_version": 2
+  },
+  "configuration": {
+    "trial_id": "20261030_D050cm_R+000_A10_T1000",
+    "condition_id": "20261030_D050cm_R+000_T1000",
+    "label": "",
+    "pico_port": "COM11",
+    "esp32_port": "COM17",
+    "baud": 115200,
+    "expected_packet_interval_ms": null,
+    "expected_echo_timeout_ms": 1000,
+    "expected_packet_bytes": null,
+    "collection_grace_period_ms": null,
+    "started_at": "2026-10-30T06:32:04.479686+00:00",
+    "stopped_at": "2026-10-30T06:33:04.550003+00:00",
+    "observed_firmware_configuration": {
+      "packet_bytes": 128,
+      "packet_interval_ms": 200,
+      "echo_timeout_ms": 1000,
+      "late_reply_grace_ms": 1000,
+      "target_packet_count": 0,
+      "test_duration_ms": 0
+    }
+  },
+  "metrics": {
+    "schema_version": 2,
+    "metrics_reliability": "complete",
+    "telemetry_sources_observed": [
+      "esp32",
+      "pico"
+    ],
+    "collection_error_count": 0,
+    "packets_transmitted_observed_by_pico": 300,
+    "pico_local_send_errors_observed": 0,
+    "packets_received_observed_by_esp32": 282,
+    "echo_attempts_observed_by_esp32": 282,
+    "echo_send_api_failures_observed_by_esp32": 0,
+    "valid_echoes_received_by_pico": 277,
+    "on_time_echoes": 277,
+    "late_echoes": 0,
+    "pico_deadlines_observed": 23,
+    "unobserved_after_grace": 23,
+    "invalid_packets_observed": 0,
+    "duplicate_packets_observed": 0,
+    "unexpected_packets_observed": 3,
+    "unmatched_or_incomplete_observations": 0,
+    "end_to_end_echo_success_ratio": 0.9233333333333333,
+    "esp32_observed_reception_ratio": 0.94,
+    "pico_observed_echo_return_ratio": 0.9233333333333333,
+    "rtt_min_us": 6910,
+    "rtt_median_us": 13977,
+    "rtt_p95_us": 43319,
+    "rtt_p99_us": 135532,
+    "rtt_max_us": 356869,
+    "rtt_jitter_mean_abs_delta_us": 13497.126811594202,
+    "maximum_consecutive_unobserved_streak": 17,
+    "unobserved_burst_lengths": [
+      3,
+      17,
+      2,
+      1
+    ],
+    "timeout_burst_frequency": {
+      "3": 1,
+      "17": 1,
+      "2": 1,
+      "1": 1
+    },
+    "goodput_payload_bytes_per_second": 462.9498401703281,
+    "active_duration_us": 59833696,
+    "rssi_min_dbm": -95,
+    "rssi_median_dbm": -92.0,
+    "rssi_max_dbm": -83,
+    "connection_events": 0,
+    "observed_configuration": {
+      "packet_bytes": 128,
+      "packet_interval_ms": 200,
+      "echo_timeout_ms": 1000,
+      "late_reply_grace_ms": 1000,
+      "target_packet_count": 0,
+      "test_duration_ms": 0
+    },
+    "configuration_mismatches": {}
+  }
+}

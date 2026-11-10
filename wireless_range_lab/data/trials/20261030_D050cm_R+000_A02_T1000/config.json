@@ -1,0 +1,22 @@
+{
+  "trial_id": "20261030_D050cm_R+000_A02_T1000",
+  "condition_id": "20261030_D050cm_R+000_T1000",
+  "label": "",
+  "pico_port": "COM11",
+  "esp32_port": "COM17",
+  "baud": 115200,
+  "expected_packet_interval_ms": null,
+  "expected_echo_timeout_ms": 1000,
+  "expected_packet_bytes": null,
+  "collection_grace_period_ms": null,
+  "started_at": "2026-10-30T05:48:30.012643+00:00",
+  "stopped_at": "2026-10-30T05:49:03.279777+00:00",
+  "observed_firmware_configuration": {
+    "packet_bytes": 128,
+    "packet_interval_ms": 200,
+    "echo_timeout_ms": 1000,
+    "late_reply_grace_ms": 1000,
+    "target_packet_count": 0,
+    "test_duration_ms": 0
+  }
+}
